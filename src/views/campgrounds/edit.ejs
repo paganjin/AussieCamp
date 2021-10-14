@@ -2,7 +2,7 @@
 <div class="row">
     <h1 class="text-center">Edit Campground</h1>
     <div class="col-6 offset-3">
-        <form method="POST" action="/campgrounds/<%= campground._id%>?_method=PUT" novalidate class="validation-form">
+        <form method="POST" action="/campgrounds/<%= campground._id%>?_method=PUT" novalidate class="validation-form" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="campground[title]" value="<%= campground.title%>" required autocomplete="off">
@@ -18,11 +18,8 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label  class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="campground[image]" value="<%= campground.image%>" required autocomplete="off">
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
+                <label for="image" class="form-label">Add More Image(s)</label>
+                <input class="form-control" type="file" id="image" name="image" multiple>
             </div>
             <div class="mb-3">
                 <label  class="form-label" for="price">Campground Price</label>                
@@ -40,6 +37,15 @@
                 <div class="valid-feedback">
                     Looks good!
                 </div>
+            </div>
+            <div class="mb-3">
+                <% campground.images.forEach(function(img, i) {%>
+                <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="">
+                <div class="form-check-inline">
+                    <input class="" type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>">
+                    <label class="" for="image-<%= i %>">Delete?</label>
+                </div>
+                <% }) %>
             </div>
             <div class="mb-3">
                 <button class="btn btn-info">Update Campground</button>
