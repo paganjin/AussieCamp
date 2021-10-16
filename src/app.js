@@ -28,9 +28,11 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(mongoSanitize({ replaceWith: '_' }))
 
+const secret = process.env.SESSION_TOKEN || '!this!should!be!a!better!secret!'
+
 const store = MongoDBStore.create({
     mongoUrl: process.env.MONGODB_URL,
-    secret: '!this!should!be!a!better!secret!',
+    secret,
     touchAfter: 24 * 60 * 60
 })
 
@@ -41,7 +43,7 @@ store.on('error', function (err) {
 const sessionConfig = {
     store,
     name: 'session',
-    secret: '!this!should!be!a!better!secret!',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -90,7 +92,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/douqbebwk/",
+                "https://res.cloudinary.com/my-camp-image/",
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
