@@ -38,19 +38,19 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634199522/vicamp/reindeer.jpg',
+                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634199523/samples/food/fish-vegetables.jpg',
                     filename: 'vicamp/reindeer'
                 },
                 {
-                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634199532/vicamp/nature-mountains.jpg',
+                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634454554/vicamp/cy4bnku5fodg9ofvro8i.jpg',
                     filename: 'vicamp/nature-mountains'
                 },
                 {
-                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634199527/vicamp/architecture-signs.jpg',
+                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634454574/vicamp/f1emekmjoiuqy1eivr2b.jpg',
                     filename: 'vicamp/architecture-signs'
                 },
                 {
-                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634199525/vicamp/girl-urban-view.jpg',
+                    url: 'https://res.cloudinary.com/my-camp-image/image/upload/v1634454391/vicamp/sv9trexs6vprueuejkek.jpg',
                     filename: 'vicamp/girl-urban-view'
                 }
             ]
